@@ -4,29 +4,24 @@ import { IArtista } from 'src/app/interfaces/IArtista';
 import { newArtista } from 'src/app/Common/factories';
 
 @Component({
-    selector: 'app-top-artista',
-    templateUrl: './top-artista.component.html',
-    styleUrls: ['./top-artista.component.scss']
-  })
-  export class TopArtistaComponent implements OnInit {
+  selector: 'app-top-artista',
+  templateUrl: './top-artista.component.html',
+  styleUrls: ['./top-artista.component.scss'],
+})
+export class TopArtistaComponent implements OnInit {
+  topArtista: IArtista = newArtista();
 
-    topArtista: IArtista = newArtista();
+  constructor(private spotifyService: SpotifyService) {}
 
-    constructor(private spotifyService: SpotifyService) {}
+  ngOnInit(): void {
+    this.buscarArtista();
+  }
 
-    ngOnInit(): void {
-        this.buscarArtista();
-       
-      }
+  async buscarArtista() {
+    const artistas = await this.spotifyService.buscarTopArtistas(1);
 
-      async buscarArtista(){
-        const artistas = await this.spotifyService.buscarTopArtistas(1);
+    if (!!artistas) this.topArtista = artistas.pop();
 
-        if(!!artistas)
-        this.topArtista = artistas.pop();
-
-        console.log(this.topArtista)
-
-      }
-  
+    console.log(this.topArtista);
+  }
 }

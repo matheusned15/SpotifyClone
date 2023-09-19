@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-    faAd,
-    faPause,
+  faAd,
+  faPause,
   faPlay,
   faStepBackward,
   faStepForward,

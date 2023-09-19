@@ -1,6 +1,6 @@
-import { Routes } from "@angular/router";
-import { PlayerComponent } from "./player.component";
-import { HomeComponent } from "../home/home.component";
+import { Routes } from '@angular/router';
+import { PlayerComponent } from './player.component';
+import { HomeComponent } from '../home/home.component';
 
 export const PlayerRotas: Routes = [
   {
@@ -9,9 +9,8 @@ export const PlayerRotas: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeComponent
-      }
-    ]
-
-  }
-]
+        component: HomeComponent,
+      },
+    ],
+  },
+];

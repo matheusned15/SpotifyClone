@@ -3,24 +3,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-buscas-recentes',
   templateUrl: './buscas-recentes.component.html',
-  styleUrls: ['./buscas-recentes.component.scss']
+  styleUrls: ['./buscas-recentes.component.scss'],
 })
 export class BuscasRecentesComponent implements OnInit {
+  pesquisasRecentes = ['Top Brasil', 'This is BK', 'DJONGA'];
 
-    pesquisasRecentes = [
-        'Top Brasil', 'This is BK', 'DJONGA'
-    ]
+  campoPesquisa = 'Ned';
 
-    campoPesquisa = 'Ned';
+  ngOnInit(): void {}
 
-    ngOnInit(): void {
-    }
+  definirPesquisa(pesquisa: string) {
+    this.campoPesquisa = pesquisa;
+  }
 
-    definirPesquisa(pesquisa: string){
-        this.campoPesquisa = pesquisa;
-    }
-
-    buscar(){
-        console.log('Buscando...', this.campoPesquisa)
-    }
+  buscar() {
+    console.log('Buscando...', this.campoPesquisa);
+  }
 }

@@ -17,24 +17,24 @@ import { ArtistaItemImagemComponent } from 'src/app/components/artista-item-imag
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 
 @NgModule({
-    declarations: [
-        PlayerComponent,
-        PainelEsquerdoComponent,
-        BotaoMenuComponent,
-        RodapeUsuarioComponent,
-        HomeComponent,
-        TopArtistaComponent,
-        PainelDireitoComponent,
-        BuscasRecentesComponent,
-        TopArtistasComponent,
-        ArtistaItemImagemComponent,
-        PlayerCardComponent
-    ],
-    imports: [
-        CommonModule,
-        FontAwesomeModule,
-        FormsModule,
-        RouterModule.forChild(PlayerRotas)
-    ]
+  declarations: [
+    PlayerComponent,
+    PainelEsquerdoComponent,
+    BotaoMenuComponent,
+    RodapeUsuarioComponent,
+    HomeComponent,
+    TopArtistaComponent,
+    PainelDireitoComponent,
+    BuscasRecentesComponent,
+    TopArtistasComponent,
+    ArtistaItemImagemComponent,
+    PlayerCardComponent,
+  ],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    FormsModule,
+    RouterModule.forChild(PlayerRotas),
+  ],
 })
-export class PlayerModule{}
+export class PlayerModule {}

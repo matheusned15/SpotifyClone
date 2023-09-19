@@ -4,33 +4,30 @@ import { Observable } from 'rxjs';
 import { SpotifyService } from '../services/spotify.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AutenticadoGuard implements CanLoad {
-
-  constructor(
-    private router: Router,
-    private spotifyService: SpotifyService) {
-    
-  }
+  constructor(private router: Router, private spotifyService: SpotifyService) {}
 
   canLoad(
     route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+    segments: UrlSegment[]
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     const token = localStorage.getItem('token');
-    
-    if(!token) {
+
+    if (!token) {
       return this.naoAutenticado();
     }
 
     return new Promise(async (res) => {
       const usuarioCriado = await this.spotifyService.inicializarUsuario();
-      if (usuarioCriado)
-        res(true);
-      else
-        res(this.naoAutenticado());
-    })
+      if (usuarioCriado) res(true);
+      else res(this.naoAutenticado());
+    });
   }
 
   naoAutenticado() {

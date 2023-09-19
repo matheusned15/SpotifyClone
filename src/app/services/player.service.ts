@@ -5,10 +5,9 @@ import { SpotifyService } from './spotify.service';
 import { IMusica } from '../interfaces/IMusica';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayerService {
-
   musicaAtual = new BehaviorSubject<IMusica>(newMusica());
   timerId: any = null;
 
@@ -18,7 +17,7 @@ export class PlayerService {
     this.obterMusicaAtual();
   }
 
-  async obterMusicaAtual(){
+  async obterMusicaAtual() {
     clearTimeout(this.timerId);
 
     // Obtenho a musica
@@ -28,15 +27,14 @@ export class PlayerService {
     // Causo loop
     this.timerId = setInterval(async () => {
       await this.obterMusicaAtual();
-    }, 5000)
+    }, 5000);
   }
-  
 
-  definirMusicaAtual(musica: IMusica){
+  definirMusicaAtual(musica: IMusica) {
     this.musicaAtual.next(musica);
   }
 
-  async voltarMusica(){
+  async voltarMusica() {
     await this.spotifyService.voltarMusica();
   }
 
@@ -44,11 +42,11 @@ export class PlayerService {
     await this.spotifyService.proximaMusica();
   }
 
-  async play(){
+  async play() {
     await this.spotifyService.play();
   }
 
-  async pause(){
+  async pause() {
     await this.spotifyService.pause();
   }
 }
