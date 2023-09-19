@@ -16,6 +16,8 @@ import { IMusica } from '../interfaces/IMusica';
     spotifyApi: Spotify.SpotifyWebApiJs = null;
     usuario: IUsuario;
 
+    isPlay: boolean = false;
+
     constructor(private router: Router) {
       this.spotifyApi = new Spotify();
     }
@@ -87,9 +89,30 @@ import { IMusica } from '../interfaces/IMusica';
       return musicas.items.map(x => SpotifyTrackParaMusica(x.track));
     }
 
+    async obterMusicaAtual(): Promise<IMusica>{
+      const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
+      return SpotifyTrackParaMusica(musicaSpotify.item);
+    }
+
     async executarMusica(musicaId: string){
       await this.spotifyApi.queue(musicaId);
       await this.spotifyApi.skipToNext();
+    }
+
+    async voltarMusica(){
+      await this.spotifyApi.skipToPrevious();
+    }
+  
+    async proximaMusica() {
+      await this.spotifyApi.skipToNext();
+    }
+
+    async play(){
+      await this.spotifyApi.play();
+    }
+
+    async pause(){
+      await this.spotifyApi.pause();
     }
 
     logout(){
