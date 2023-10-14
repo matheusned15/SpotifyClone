@@ -2,16 +2,14 @@
 
 Visual Web
 
-**Login**
+
+
+
+<div align="center">
 <img src='https://user-images.githubusercontent.com/54325178/275291836-fdb7b028-df99-4f99-8266-5700f3d7af3b.PNG' width="70%">
-
-**Autenticação**
 <img src='https://user-images.githubusercontent.com/54325178/275291837-106fc585-f353-4c73-a8bf-36d69dfd9b31.PNG' width="70%">
-
-**Layout**
 <img src='https://user-images.githubusercontent.com/54325178/275291838-ba0bcd72-7912-476a-8757-35b02d3aa70f.PNG' width="70%">
-
----
+</div>
 
 ## 🔖Sobre
 
